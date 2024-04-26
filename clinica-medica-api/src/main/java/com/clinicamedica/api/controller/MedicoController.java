@@ -1,9 +1,7 @@
 package com.clinicamedica.api.controller;
 
-import com.clinicamedica.api.medico.DadosCadastroMedico;
-import com.clinicamedica.api.medico.DadosListagemMedico;
-import com.clinicamedica.api.medico.Medico;
-import com.clinicamedica.api.medico.MedicoRepository;
+import com.clinicamedica.api.medico.*;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,4 +27,10 @@ public class MedicoController {
         return repository.findAll(paginacao).map(DadosListagemMedico::new);
     }
 
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados) {
+        var medico = repository.getReferenceById(dados.id());
+        medico.atualizarInformacoes(dados);
+    }
 }
