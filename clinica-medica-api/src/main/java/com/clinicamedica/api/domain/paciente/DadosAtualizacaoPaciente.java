@@ -1,13 +1,12 @@
-package com.clinicamedica.api.medico;
+package com.clinicamedica.api.domain.paciente;
 
-import com.clinicamedica.api.endereco.DadosEndereco;
+import com.clinicamedica.api.domain.endereco.DadosEndereco;
 import jakarta.validation.constraints.NotNull;
 
-public record DadosAtualizacaoMedico(
+public record DadosAtualizacaoPaciente(
         @NotNull
         Long id,
         String nome,
         String telefone,
         DadosEndereco endereco) {
-
 }

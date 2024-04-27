@@ -1,6 +1,6 @@
-package com.clinicamedica.api.medico;
+package com.clinicamedica.api.domain.medico;
 
-import com.clinicamedica.api.endereco.Endereco;
+import com.clinicamedica.api.domain.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

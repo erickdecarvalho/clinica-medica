@@ -1,4 +1,4 @@
-package com.clinicamedica.api.medico;
+package com.clinicamedica.api.domain.medico;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

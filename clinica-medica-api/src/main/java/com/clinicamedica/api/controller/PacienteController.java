@@ -1,6 +1,6 @@
 package com.clinicamedica.api.controller;
 
-import com.clinicamedica.api.paciente.*;
+import com.clinicamedica.api.domain.paciente.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
