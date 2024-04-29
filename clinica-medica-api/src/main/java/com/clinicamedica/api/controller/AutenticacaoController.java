@@ -2,6 +2,7 @@ package com.clinicamedica.api.controller;
 
 import com.clinicamedica.api.domain.usuario.DadosAutenticacao;
 import com.clinicamedica.api.domain.usuario.Usuario;
+import com.clinicamedica.api.infra.security.DadosTokenJWT;
 import com.clinicamedica.api.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,8 @@ public class AutenticacaoController {
         var token = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
         var authentication = manager.authenticate(token);
 
-        return ResponseEntity.ok(tokenService.gerarToken((Usuario) authentication.getPrincipal()));
+        var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
+        return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
     }
 
 
